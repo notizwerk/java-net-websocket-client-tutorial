@@ -19,7 +19,7 @@ class BitfinexListener(val vertx: Vertx, val subscriptions: LocalMap<Int, String
         LOGGER.info("websocket opened")
         this.vertx.periodicStream(60000).toObservable().subscribe { i ->
             val pingTxt = JsonObject().put("event", "ping").put("cid", random.nextInt()).encode()
-            webSocket?.sendText(pingTxt, true)?.thenRun({ -> LOGGER.info("sent ping {}", pingTxt) })
+            webSocket?.sendText(pingTxt, true)?.thenRun { -> LOGGER.info("sent ping {}", pingTxt) }
         }
     }
 

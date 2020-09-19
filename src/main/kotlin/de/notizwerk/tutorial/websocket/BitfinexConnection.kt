@@ -17,8 +17,8 @@ class BitfinexConnection : AbstractVerticle() {
 
     override fun start() {
         LOGGER.info("deploying BitfinexConnection")
-        val s = vertx.sharedData().getLocalMap<Int,String>("biitfinex.subscriptions")
-        val listener = BitfinexListener(this.vertx, s)
+        val subs = vertx.sharedData().getLocalMap<Int,String>("bitfinex.subscriptions")
+        val listener = BitfinexListener(this.vertx, subs)
         val client = HttpClient.newHttpClient()
         this.webSocket = client.newWebSocketBuilder()
             .buildAsync(URI.create("wss://api-pub.bitfinex.com/ws/2"), listener)
