@@ -6,3 +6,5 @@ assure that you use Java 11 or higher (e.g. by `jabba use openjdk@1.11.0-2`) and
 ```
 .\gradlew run
 ```
+
+There is a full tutorial on medium [A Websocket Client using the Java 11 WebSocket API](https://medium.com/@tarek.elsibay/a-bitfinex-websocket-client-with-the-java-net-http-websocket-api-3fa873224996)
